@@ -213,4 +213,12 @@
 
 //     P5 O(1) // constant
 
-//     P6 
+//     P6 0(1) // constant
+
+//     P7 loop inside loop and a push n^2 + 1 = n^2 // quadratic
+
+//     P8 loop inside loop n^2 // quadratic
+
+//     P9 loop + push O(n) + O(1) = n // linear
+
+//     p10 filter + reduce = 2n // linear
