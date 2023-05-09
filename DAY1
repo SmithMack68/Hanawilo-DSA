@@ -1,0 +1,216 @@
+// Topic 1 Assignment
+
+// 1. What is Big O Notation?
+//     a way to measure the complexity of your code. The difficulty of a task as the data size increases. Helps to determine the best solution and how slow or fast your code is.
+
+
+// 2. O(n!) - Factorial Time Complexity - 5 
+//     - the time it takes to run an algorithm is directly proportional to the factorial of the inpiut 
+//     size. Example: if the input size is 5, the time it takes to run the algorithm would be
+//     5!(5*4*3*2*1)
+    
+//    O(n^2) - Quadratic Time Complexity - 4
+//     - when you increase the size of the input by a multiplication factor Example: a loop within a loop. Iterating through an array of 10, with another loop inside it becomes 10x10 or 10x the data takes 100x more time
+
+//     const twoSum = (nums, target) => {
+//         for(let i = 0; i < nums.length; i++){
+//         for(let j = i + 1; j < nums.length; j++){
+//              if(nums[i]+nums[j] === target) {
+//                 return [i,j]
+//             }
+//           }
+//         }
+//     }
+
+//    O(n) - Linear Time Complexity - 3
+//     - 1:1 relationship |b| data size and time completion. Example: All loops
+//     for
+//     while
+//     .map()
+//     .foreach()
+//     If an array has 5x nums it will take 5x as long, 500x nums will take 500x
+
+//     for(let i = 0; i < arr.length; i++){
+//         constant element = arr[i]
+//     }
+
+//    O(logn) - Logarithmic Time Complexity - 2
+//     - when the time of execution is proportional to the logarithm of the input size
+//     Example: leap frog - partial iteration. Doesn't hit every element in the array.
+//     Most work happens at the start, then evens out.
+
+//     const logTime = (arr) => {
+//         let numOfLoops = 0
+//         for(let i = 1; i < arr.length; i *= 2) {
+//             numOfLoops++
+//         }
+//         return numOfLoops
+//     }
+
+//    O(1) - Constant Time Complexity - 1
+//     - regardless of input size time to compute is the same. Ideal!!
+//     Example: pushing/removing an element from end of an array - because the index values do not change, stack of book ex. Variables hold space complexity(unless function) doesn't change time
+//     adding/subtracting 2 numbers (any mathematical computation)
+//     accessing a value with an array index
+//     .pop()
+//     .push()
+
+//     const twoSum = (num1, num2) => {
+//         return num1 + num2
+//     }
+
+//     arr = [1,2,3,4,5]
+//     arr1.push(6)
+
+
+// 3. Why care about Big O and code performance?  
+//     It helps us to determine the best algorithm to use when tackling a problem we want to solve.
+//     It improves our code. 
+//     Determines how fast it will eventually run.
+//     Breaks it down into smaller parts which simplifies the "complexity" of operations as the 
+//         input size grows.
+//     Allows for scalability  
+//     Time is $$
+//     Slow code isn't good
+//     Can focus on trends of operation
+
+// 4. Why not use perfomance.now()?
+//     Not all computers run at the same speed or have the same storage RAM + CPU differences
+//     Requires ('perf_hooks')
+
+
+// 5.   const someFunction = (arr1) => { 
+//         arr1.push(1).pop()  // O(1) + O(1) = 1
+
+//         for (let i = 0; i < arr1.length; i++) {
+//              console.log('do something 2') // O(n) = n
+//         }
+
+//         for (let i = 0; i < arr1.length; i++) { 
+//             console.log('do something 3') // O(n) = n
+//         }
+
+//         for (let i = 0; i < arr1.length; i++) {
+//             for (let i = 0; i < arr1.length; i++) {
+//                 console.log('do something 3') // O(n^2) = n^2
+//             }
+//         } 
+//      }  
+
+//     - the total complexity would be 1 + 2n + n^2 but using consolidated time it would be n^2
+//     - it always reduces to the worst performer, that carries the trend the shorter times don't matter, only the slowest
+
+
+// 6. 1 + n + n^3 = n^3 
+
+// 7. Why can you ignore constants and consolidate time complexities? 
+//     - because only the worst time complexity will have an impact on the code performance
+//     - you ignore the constants Example: if running at 5n (runs on the order of the big O of n)
+//     because as the N gets large, the 5 no longer matters. So the size of the input (n) DOES NOT 
+//     MATTER
+
+// 8. What is Space Complpexity and why does it matter?
+//     - helps to analyze how much additional memory we need to allocate to compute our algorithm 
+//     - how much space does the code take up, this is important because you don't want to run a function that exceeds the space, it will cause slow downs or worse
+
+// 9.     
+//     Boolean - constant
+//     Undefined - constant
+//     Null - constant
+//     Numbers  - constant
+//     String - linear
+//     Array - linear (general)
+//     Object - linear (general)
+
+// 10. Reasons to use an array or object?
+//     - use an array when you need fast access to elements and need indices(ordered)
+//     - use on object when you DON'T need fast access or order
+
+
+// 11.     const obj = { 
+//             name: 'tony' 
+//         }
+
+//         //inserting
+//         obj.age = 44; // constant
+        
+//         //removing
+//         delete obj.age; // constant
+        
+//         //searching 1
+//         obj.hasOwnProperty['name'] // constant
+
+//         //searching 2
+//         for (const prop in obj) { 
+//             console.log(obj[prop]) // linear
+//         }
+//         //accessing 
+//         obj.age // constant
+
+//         //retrieving keys
+//         Object.keys(obj) // linear
+
+//         //retrieving values
+//         Object.values(obj)  // linear
+
+
+// 12. 
+//     const arr2 = [1, 2, 3, 4, 5, 6, 7]; 
+
+//     //inserting 1
+//     arr2.push(8) // constant
+
+//     //inserting 2
+//     arr2.unshift(0) // linear
+
+//     //removing 1
+//     arr2.pop() // constant
+
+//     //removing 2
+//     arr2.shift() // linear
+
+//     //searching 1
+//     const findNumber = arr2.find(num => num === 2) // linear
+
+//     //searching 2
+//     for (let i = 0; i < arr2.length; i++) { // linear
+//          if (arr2[i] === 2) {
+//             return arr2[i]
+//          }
+//     }
+
+//     //retrieving
+//     const getNumber = arr2[3]  // constant
+
+//     //method 1
+//     const double = arr2.map(num => num * 2) //linear loop
+    
+//     //method 2
+//     const removeAndAddNewNumber = arr2.splice(1, 1, 5) // linear indices change
+    
+//     //method 3
+//     const getSum = arr2.reduce((total, num) => total + num, 0) //linear sort of a loop
+
+//     //method 4
+//     for (const num of nums) { 
+//         console.log(num * 2) // linear
+//     }
+
+//     //method 5
+//     const convertToString = arr2.join(' ') // linear 
+
+
+// 13. 
+//     P1  O(n) = n  One for loop all loops are //linear
+
+//     P2  O(n) .forEach
+//         O(1) .push 
+//         = n+1 reduces to n // linear
+
+//     P3  O(1) // constant  no indices are changing  
+
+//     P4 O(n) // for loop //linear
+
+//     P5 O(1) // constant
+
+//     P6 
