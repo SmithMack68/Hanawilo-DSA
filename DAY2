@@ -31,13 +31,15 @@ array. Where the average of the pair equals the target average.
 There may be more than one pair that matches the average target.
 */
 const avgPair = (arr, avgTarget) => {
+    //forgot test cases
+    if(arr.length === 0) return false;
     //set up pointers
     let left = 0;
     let right = arr.length -1;
-    let sum = 0;
 
+    //forgot to do the avgerage x+y/2
     while(left<right) {
-        sum = arr[left] + arr[right]
+      let sum = (arr[left] + arr[right])/2
         if(sum === avgTarget){
             return true
         } else if(sum > avgTarget) {
