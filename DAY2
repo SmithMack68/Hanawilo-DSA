@@ -31,7 +31,7 @@ array. Where the average of the pair equals the target average.
 There may be more than one pair that matches the average target.
 */
 const avgPair = (arr, avgTarget) => {
-    //forgot test cases
+    //forgot edge cases
     if(arr.length === 0) return false;
     //set up pointers
     let left = 0;
