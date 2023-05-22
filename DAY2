@@ -32,21 +32,27 @@ There may be more than one pair that matches the average target.
 */
 const avgPair = (arr, avgTarget) => {
     //forgot edge cases
-    if(arr.length === 0) return false;
+    // if(arr.length === 0) return false;
+    if(!arr.length) {
+         return false;
+    }  
+    let t = avgTarget * 2;   
     //set up pointers
     let left = 0;
     let right = arr.length -1;
+    let sum = 0;
 
     //forgot to do the avgerage x+y/2
     while(left<right) {
-      let sum = (arr[left] + arr[right])/2
-        if(sum === avgTarget){
+        sum = arr[left] + arr[right];
+        if(sum === t){
             return true
-        } else if(sum > avgTarget) {
+        } else if(sum > t) {
             right--
         } else {
             left++
         }
+        sum = 0 //do I need this??? to reset
     }
     return false;
 }
