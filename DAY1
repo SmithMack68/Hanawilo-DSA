@@ -2,16 +2,31 @@
 
 // 1. What is Big O Notation?
 //     a way to measure the complexity of your code. The difficulty of a task as the data size increases. Helps to determine the best solution and how slow or fast your code is.
-
+        // added solution // It is used to describe the worst case scenario of an algorithm. It is used to compare algorithms to see which one is more efficient. 
+        //It is calculated by finding the dominant term in the algorithm. The dominant term is the term that grows the fastest. For example, if you have an algorithm that has a time complexity of O(n^2 + n), the dominant term is n^2, so the time complexity is O(n^2).
 
 // 2. O(n!) - Factorial Time Complexity - 5 
 //     - the time it takes to run an algorithm is directly proportional to the factorial of the inpiut 
 //     size. Example: if the input size is 5, the time it takes to run the algorithm would be
 //     5!(5*4*3*2*1)
+
+            //added ex//  
+            //  const factorial = (input) => {
+            //        let result = 0;
+            //        for (let i = 0; i < input.length; i++) {
+            //            for (let j = 0; j < input.length; j++) {
+            //                for (let k = 0; k < input.length; k++) {
+            //                    result++;
+            //                 }
+            //            }
+            //        }
+            //        return result;
+            //  }
+            
     
 //    O(n^2) - Quadratic Time Complexity - 4
 //     - when you increase the size of the input by a multiplication factor Example: a loop within a loop. Iterating through an array of 10, with another loop inside it becomes 10x10 or 10x the data takes 100x more time
-
+        // added answer// time complexity is when the time execution is proportional to the square of the input size. Meaning the O(n^2) complexity always looks at every element in the input, but it does it twice. An example would be a nested for loop that loops through every element of the array.
 //     const twoSum = (nums, target) => {
 //         for(let i = 0; i < nums.length; i++){
 //         for(let j = i + 1; j < nums.length; j++){
@@ -21,6 +36,17 @@
 //           }
 //         }
 //     }
+
+            //added example// const quadratic = (input) => {
+            //                   let result = 0;
+            //                   for (let i = 0; i < input.length; i++) {
+            //                       for (let j = 0; j < input.length; j++) {
+            //                          result++;
+            //                       }
+            //                   }
+            //                   return result;
+            //                } 
+        
 
 //    O(n) - Linear Time Complexity - 3
 //     - 1:1 relationship |b| data size and time completion. Example: All loops
@@ -34,7 +60,15 @@
 //         constant element = arr[i]
 //     }
 
-//    O(logn) - Logarithmic Time Complexity - 2
+        //added example// const linear = (input) => {
+        //                   let result = 0;
+        //                   for (let i = 0; i < input.length; i++) {
+        //                        result++;
+        //                   }  
+        //                   return result;
+        //                }
+
+//    O(log n) - Logarithmic Time Complexity - 2
 //     - when the time of execution is proportional to the logarithm of the input size
 //     Example: leap frog - partial iteration. Doesn't hit every element in the array.
 //     Most work happens at the start, then evens out.
@@ -62,6 +96,10 @@
 //     arr = [1,2,3,4,5]
 //     arr1.push(6)
 
+        //added example//  const constant = (input) => {
+        //                     return imput[0];  
+        //                 }
+
 
 // 3. Why care about Big O and code performance?  
 //     It helps us to determine the best algorithm to use when tackling a problem we want to solve.
@@ -80,7 +118,7 @@
 
 
 // 5.   const someFunction = (arr1) => { 
-//         arr1.push(1).pop()  // O(1) + O(1) = 1
+//         arr1.push(1).pop()  // O(1) + O(1) = 2
 
 //         for (let i = 0; i < arr1.length; i++) {
 //              console.log('do something 2') // O(n) = n
@@ -97,21 +135,23 @@
 //         } 
 //      }  
 
-//     - the total complexity would be 1 + 2n + n^2 but using consolidated time it would be n^2
+//     - the total complexity would be 2 + 2n + n^2 but using consolidated time it would be O(n^2)
 //     - it always reduces to the worst performer, that carries the trend the shorter times don't matter, only the slowest
 
 
-// 6. 1 + n + n^3 = n^3 
+// 6. 1 + n + n^3 = n^3 consolidated O(n^3) 
 
 // 7. Why can you ignore constants and consolidate time complexities? 
 //     - because only the worst time complexity will have an impact on the code performance
 //     - you ignore the constants Example: if running at 5n (runs on the order of the big O of n)
 //     because as the N gets large, the 5 no longer matters. So the size of the input (n) DOES NOT 
 //     MATTER
+        //added example// We can consolidate our time complexities because it is easier to compare the time complexities of different algorithms when they are all in the same format. For example, if we have an algorithm that has a time complexity of O(n^2 + n), we can consolidate the time complexity to O(n^2).
 
 // 8. What is Space Complpexity and why does it matter?
 //     - helps to analyze how much additional memory we need to allocate to compute our algorithm 
 //     - how much space does the code take up, this is important because you don't want to run a function that exceeds the space, it will cause slow downs or worse
+        //added example// For example, if an algorithm uses a lot of memory, it may run slower than an algorithm that uses less memory.
 
 // 9.     
 //     Boolean - constant
@@ -124,6 +164,7 @@
 
 // 10. Reasons to use an array or object?
 //     - use an array when you need fast access to elements and need indices(ordered)
+        //added answer// need to store a list of elements that are ordered
 //     - use on object when you DON'T need fast access or order
 
 
@@ -201,24 +242,38 @@
 
 
 // 13. 
-//     P1  O(n) = n  One for loop all loops are //linear
+//     P1 T O(n) = n  One for loop all loops are //linear
+//        S O(1) = //added answer// not creating any new variables or arrays, just returning index
 
-//     P2  O(n) .forEach
-//         O(1) .push 
-//         = n+1 reduces to n // linear
+//     P2 T O(n) .forEach // linear
+//        ***  S O(1) .push?? I got this wrong 
+//        S O(n) why we are creating a new array that is the same size as the input array
+//         
 
-//     P3  O(1) // constant  no indices are changing  
+//     P3 T O(1) // constant  no indices are changing 
+//        S O(1) //added answer// not creating any new variables or arrays, just returning a string 
 
-//     P4 O(n) // for loop //linear
+//     P4 T O(n) // for loop //linear
+//        S O(1)  not creating, returning a number 
 
-//     P5 O(1) // constant
+//     P5 T O(1) // constant simple math
+//        S O(1) not creating, returning number
 
-//     P6 0(1) // constant
+//     P6 T Did not get this one only space //added answer// O(log n) we are using a recursive function that divides the array in half each time
+//        S 0(1) 
 
-//     P7 loop inside loop and a push n^2 + 1 = n^2 // quadratic
+//     P7 T O(n^2) loop inside loop and a push n^2 + 1 = n^2 // quadratic
+//        S O(n) creating a new array //added aswer//same size as input array
 
-//     P8 loop inside loop n^2 // quadratic
+//     P8 T O(n^2) loop inside loop n^2 // quadratic
+//        *** S O(1) not creating I got this wrong WHY? O(n)***
 
-//     P9 loop + push O(n) + O(1) = n // linear
+//     P9 T O(n^2)loop + push O(n) + O(1) not sure about includes(loop? I think yes)
+//        S O(n) creating and returning an array //added answer// same size
 
-//     p10 filter + reduce = 2n // linear
+//     p10 T O(n) filter + reduce = 2n // linear
+//         S O(n) creating and returning an array //added answer// same size
+
+
+
+//  I am a little confused about space, I thought I understood but 13.8 had me confused
